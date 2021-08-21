@@ -26,7 +26,7 @@ int RTC; //Holds the RTC instance
 int HH,MM,SS;
 
 
-// Clean up function to avoid damaging used pins
+// Clean up function to avoid damaging used pins.
 void CleanUp(int sig){
 	printf("Cleaning up\n");
 
