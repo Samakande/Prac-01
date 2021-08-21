@@ -91,9 +91,9 @@ int main(void){
 
 	//Set random time (3:04PM)
 	//You can comment this file out later
-	wiringPiI2CWriteReg8(RTC, HOUR_REGISTER, 0x13+TIMEZONE);
+	/*wiringPiI2CWriteReg8(RTC, HOUR_REGISTER, 0x13+TIMEZONE);
 	wiringPiI2CWriteReg8(RTC, MIN_REGISTER, 0x4);
-	wiringPiI2CWriteReg8(RTC, SEC_REGISTER, 0x00);
+	wiringPiI2CWriteReg8(RTC, SEC_REGISTER, 0x00);*/
 	
 	// Repeat this until we shut down
 	for (;;){
@@ -105,12 +105,20 @@ int main(void){
 
 		//Toggle Seconds LED
 		//Write your logic here
-		 digitalWrite (3,1 ) ;
+		void loop() {
+		digitalWrite(3, 1); // Turn the LED on
+		delay(500);// Wait for 500 milliseconds (1 second)
+		digitalWrite(3,0); // Turn the LED off
+		delay(500);// Keep it off
+		}
+		loop(); 
 		// Print out the time we have stored on our RTC
 		printf("The current time is: %d:%d:%d\n", hours, mins, secs);
 
 		//using a delay to make our program "less CPU hungry"
-		delay(1000); //milliseconds
+		//delay(1000); //milliseconds
+	
+
 	}
 	return 0;
 }
